@@ -7,14 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
-
-
 //configuracion de la conexion 
 builder.Services.AddSingleton(new AppDbContext(builder.Configuration.GetConnectionString("conexion")));
 //dependencias
 builder.Services.AddScoped<ITareasRepositorio, TareasRepositorio>();
 builder.Services.AddScoped<TareaServicio>();
+
+
+var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

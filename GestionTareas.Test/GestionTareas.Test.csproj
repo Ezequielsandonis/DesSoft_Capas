@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GestionTareas.Abstractions\GestionTareas.Abstractions.csproj" />
+    <ProjectReference Include="..\GestionTareas.Datos\GestionTareas.Datos.csproj" />
     <ProjectReference Include="..\GestionTareas.Negocio\GestionTareas.Negocio.csproj" />
   </ItemGroup>
 
