@@ -1,5 +1,7 @@
 ﻿using GestionTareas.Abstractions;
 using GestionTareas.Entidades;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace GestionTareas.Datos
 {
@@ -16,29 +18,152 @@ namespace GestionTareas.Datos
 
         }
 
-        void ITareasRepositorio.ActualizarTarea(Tarea tarea)
+        //implementacion del repositorio
+
+
+        public List<Tarea> ListarTareas()
         {
-            throw new NotImplementedException();
+            //se crea una nueva lista del modelo 
+            var tareas = new List<Tarea>();
+
+            //abrir conexion
+            using (SqlConnection con = new(_contexto.Conexion))
+            {
+                //llamar procedimiento almacenado
+                using (SqlCommand cmd = new SqlCommand("ListarTareas", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //abrir conexion y ejecutar
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        var tarea = new Tarea
+                        {
+                            //castear
+                            TareaId = (int)rdr["TareaId"],
+                            Titulo = rdr["Titulo"].ToString(),
+                            FechaLimite = Convert.ToDateTime(rdr["FechaLimite"]),
+                            Estado = (Boolean)rdr["Estado"]
+                        };
+
+                        //agregar a la lista
+                        tareas.Add(tarea);
+                    }
+                }
+            }
+
+            return tareas;
         }
 
-        void ITareasRepositorio.EliminarTarea(int id)
+        //ListarPorId 
+        public Tarea ListarTareaPorId(int id)
         {
-            throw new NotImplementedException();
+            //iniciar instancia 
+            Tarea tarea = new();
+            using (SqlConnection con = new(_contexto.Conexion))
+            {
+                using (SqlCommand cmd = new("ListarTareaPorId", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    // parametros
+                    cmd.Parameters.AddWithValue("@TareaId", id);
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        tarea = new Tarea
+                        {
+                            //castear
+                            TareaId = id,
+                            Titulo = rdr["Titulo"].ToString(),
+                            FechaLimite = Convert.ToDateTime(rdr["FechaLimite"]),
+                            Estado = (Boolean)rdr["Estado"]
+                        };
+                    }
+
+                }
+            }
+
+            return (tarea);
         }
 
-        void ITareasRepositorio.InsertarTarea(Tarea tarea)
+        // insertar 
+        public void InsertarTarea(Tarea tarea)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_contexto.Conexion))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("InsertarTarea", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Titulo", tarea.Titulo);
+                        cmd.Parameters.AddWithValue("@FechaLimite", tarea.FechaLimite);
+                        cmd.Parameters.AddWithValue("@Estado", tarea.Estado);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lanza una excepción para manejo en el controlador
+                throw new ApplicationException("Error inesperado al insertar la tarea.", ex);
+            }
         }
 
-        Tarea ITareasRepositorio.ListarTareaPorId(int id)
+
+        //actualizar
+        public void ActualizarTarea(Tarea tarea)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_contexto.Conexion))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("ActualizarTarea", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TareaId", tarea.TareaId);
+                        cmd.Parameters.AddWithValue("@Titulo", tarea.Titulo);
+                        cmd.Parameters.AddWithValue("@FechaLimite", tarea.FechaLimite);
+                        cmd.Parameters.AddWithValue("@Estado", tarea.Estado);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lanza una excepción para manejo en el controlador
+                throw new ApplicationException("Error inesperado al actualizar la tarea.", ex);
+            }
         }
 
-        List<Tarea> ITareasRepositorio.ListarTareas()
+        //eliminar
+        public void EliminarTarea(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_contexto.Conexion))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("EliminarTarea", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TareaId", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lanza una excepción para manejo en el controlador
+                throw new ApplicationException("Error inesperado al Eliminar la tarea.", ex);
+            }
         }
+
+
     }
 }

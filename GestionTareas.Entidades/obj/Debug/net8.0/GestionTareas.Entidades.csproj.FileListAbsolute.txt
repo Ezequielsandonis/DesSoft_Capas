@@ -1,0 +1,12 @@
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\bin\Debug\net8.0\GestionTareas.Entidades.deps.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\bin\Debug\net8.0\GestionTareas.Entidades.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\bin\Debug\net8.0\GestionTareas.Entidades.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.AssemblyInfoInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.AssemblyInfo.cs
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.sourcelink.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\refint\GestionTareas.Entidades.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\GestionTareas.Entidades.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Entidades\obj\Debug\net8.0\ref\GestionTareas.Entidades.dll

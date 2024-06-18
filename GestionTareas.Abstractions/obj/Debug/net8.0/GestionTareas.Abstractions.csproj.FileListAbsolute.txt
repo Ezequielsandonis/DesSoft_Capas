@@ -1,0 +1,16 @@
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\bin\Debug\net8.0\GestionTareas.Abstractions.deps.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\bin\Debug\net8.0\GestionTareas.Abstractions.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\bin\Debug\net8.0\GestionTareas.Abstractions.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\bin\Debug\net8.0\GestionTareas.Entidades.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\bin\Debug\net8.0\GestionTareas.Entidades.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.csproj.AssemblyReference.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.AssemblyInfoInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.AssemblyInfo.cs
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.sourcelink.json
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.csproj.CopyComplete
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\refint\GestionTareas.Abstractions.dll
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\GestionTareas.Abstractions.pdb
+C:\Users\NG By ROG\Desktop\Desarrollo de soft\DesSoft_Capas\GestionTareas.Abstractions\obj\Debug\net8.0\ref\GestionTareas.Abstractions.dll

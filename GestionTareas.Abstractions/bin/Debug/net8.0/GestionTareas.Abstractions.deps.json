@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "GestionTareas.Abstractions/1.0.0": {
+        "dependencies": {
+          "GestionTareas.Entidades": "1.0.0"
+        },
+        "runtime": {
+          "GestionTareas.Abstractions.dll": {}
+        }
+      },
+      "GestionTareas.Entidades/1.0.0": {
+        "runtime": {
+          "GestionTareas.Entidades.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GestionTareas.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GestionTareas.Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
