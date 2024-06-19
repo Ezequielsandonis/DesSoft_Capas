@@ -49,7 +49,7 @@ jobs:
     - name: Run FTP deployment script
       run: |
         echo "Running FTP deployment script"
-        pwsh -File ./deploy.ps1 -ftpServer $env:FTP_SERVER -ftpUsername $env:FTP_USERNAME -ftpPassword $env:FTP_PASSWORD -localPath "$(Build.Repository.LocalPath)/path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
+        pwsh -Command "& { .\deploy.ps1 -ftpServer 'GestorDeTareas.somee.com' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath 'path/to/build/output' -remotePath 'www.GestorDeTareas.somee.com' }"
       env:
         FTP_SERVER: "GestorDeTareas.somee.com"
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
