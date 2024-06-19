@@ -46,6 +46,12 @@ jobs:
       - name: Set up PowerShell
         uses: actions/setup-powershell@v2
 
+      - name: List output directory
+        run: |
+          echo "Listing files in the output directory:"
+          ls -alh $(Build.Repository.LocalPath)/path/to/build/output
+
+
       - name: Run FTP deployment script
         run: |
           echo "Running FTP deployment script"
