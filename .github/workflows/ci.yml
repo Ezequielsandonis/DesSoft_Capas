@@ -43,10 +43,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Set up PowerShell
+        uses: actions/setup-powershell@v2
+
       - name: Run FTP deployment script
         run: |
           echo "Running FTP deployment script"
-          pwsh -File ./deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
+          pwsh -Command "& { .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/path/to/build/output' -remotePath 'www.GestorDeTareas.somee.com' }"
         env:
+          FTP_SERVER: "GestorDeTareas.somee.com"
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
