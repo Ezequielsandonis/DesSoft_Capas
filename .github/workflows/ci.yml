@@ -35,18 +35,18 @@ jobs:
         run: dotnet test --no-build --verbosity normal
 
   deploy:
-  name: Deploy to Production
-  needs: build
-  runs-on: ubuntu-latest
-  if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-  steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+    name: Deploy to Production
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Run FTP deployment script
-      run: |
-        echo "Running FTP deployment script"
-        pwsh -File ./deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
-      env:
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      - name: Run FTP deployment script
+        run: |
+          echo "Running FTP deployment script"
+          pwsh -File ./deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
