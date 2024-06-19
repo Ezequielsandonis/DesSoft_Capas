@@ -49,12 +49,12 @@ jobs:
       - name: List output directory
         run: |
           echo "Listing files in the output directory:"
-          ls -alh $(Build.Repository.LocalPath)/path/to/build/output
+          ls -alh $(Build.Repository.LocalPath)/**/out/
 
       - name: Run FTP deployment script
         run: |
           echo "Running FTP deployment script"
-          pwsh -Command "& { .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/path/to/build/output' -remotePath 'www.GestorDeTareas.somee.com' }"
+          pwsh -Command "& { .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/**/out/' -remotePath 'www.GestorDeTareas.somee.com' }"
         env:
           FTP_SERVER: "GestorDeTareas.somee.com"
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
