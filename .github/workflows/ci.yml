@@ -1,8 +1,9 @@
-name: .NET CI
+name: .NET CI/CD
 
 on:
   push:
-    branches: [ "develop", "feature/*" ]
+  branches: [ "develop", "main", "feature/*" ]
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "develop" ]
 
@@ -27,4 +28,20 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build --verbosity normal
- 
+
+       deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/tags/v*.*.*' # Solo se ejecuta si es un tag de releases
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+      - name: Run FTP deployment script
+        run: |
+          echo "Running FTP deployment script"
+          powershell.exe -File .\deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
