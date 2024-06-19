@@ -2,41 +2,46 @@ name: .NET CI/CD
 
 on:
   push:
-  branches: [ "develop", "main", "feature/*" ]
-    tags: [ 'v*.*.*' ]
+    branches:
+      - develop
+      - main
+      - "feature/*"
+    tags:
+      - 'v*.*.*'
   pull_request:
-    branches: [ "develop" ]
+    branches:
+      - develop
 
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore
+      - name: Build
+        run: dotnet build --no-restore
 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
 
-       deploy:
+  deploy:
+    name: Deploy to Production
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/tags/v*.*.*' # Solo se ejecuta si es un tag de releases
-
+    if: github.ref == 'refs/tags/v*.*.*'
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
 
       - name: Run FTP deployment script
         run: |
