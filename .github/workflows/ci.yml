@@ -43,14 +43,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Set up PowerShell
-        uses: actions/setup-powershell@v2
+      - name: Setup PowerShell Toolkit
+        uses: hugoalh-studio/setup-powershell-toolkit-ghaction@v2.0.0
 
       - name: List output directory
         run: |
           echo "Listing files in the output directory:"
           ls -alh $(Build.Repository.LocalPath)/path/to/build/output
-
 
       - name: Run FTP deployment script
         run: |
