@@ -46,7 +46,7 @@ jobs:
       - name: Run FTP deployment script
         run: |
           echo "Running FTP deployment script"
-          powershell.exe -File .\deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
+          pwsh -File ./deploy.ps1 -ftpServer "GestorDeTareas.somee.com" -ftpUsername "${{ secrets.FTP_USERNAME }}" -ftpPassword "${{ secrets.FTP_PASSWORD }}" -localPath "path/to/build/output" -remotePath "www.GestorDeTareas.somee.com"
         env:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
