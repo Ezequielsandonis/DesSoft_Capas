@@ -46,15 +46,27 @@ jobs:
       - name: Setup PowerShell Toolkit
         uses: hugoalh-studio/setup-powershell-toolkit-ghaction@v2.0.0
 
-      - name: List output directory
+      - name: List output directories
         run: |
-          echo "Listing files in the output directory:"
-          ls -alh $(Build.Repository.LocalPath)/**/out/
+          echo "Listing files in the output directories:"
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Entidades/out
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Datos/out
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Abstractions/out
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Negocio/out
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Web/out
+          ls -alh $(Build.Repository.LocalPath)/GestionTareas.Test/out
 
       - name: Run FTP deployment script
         run: |
           echo "Running FTP deployment script"
-          pwsh -Command "& { .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/**/out/' -remotePath 'www.GestorDeTareas.somee.com' }"
+          pwsh -Command "& {
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Entidades/out' -remotePath 'www.GestorDeTareas.somee.com/Entidades' ;
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Datos/out' -remotePath 'www.GestorDeTareas.somee.com/Datos' ;
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Abstractions/out' -remotePath 'www.GestorDeTareas.somee.com/Abstractions' ;
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Negocio/out' -remotePath 'www.GestorDeTareas.somee.com/Negocio' ;
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Web/out' -remotePath 'www.GestorDeTareas.somee.com/Web' ;
+            .\\deploy.ps1 -ftpServer '${{ env.FTP_SERVER }}' -ftpUsername '${{ secrets.FTP_USERNAME }}' -ftpPassword '${{ secrets.FTP_PASSWORD }}' -localPath '$(Build.Repository.LocalPath)/GestionTareas.Test/out' -remotePath 'www.GestorDeTareas.somee.com/Test' ;
+          }"
         env:
           FTP_SERVER: "GestorDeTareas.somee.com"
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
