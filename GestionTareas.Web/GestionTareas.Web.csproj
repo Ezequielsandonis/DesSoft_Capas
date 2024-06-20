@@ -4,8 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	  <OutputPath>./out/</OutputPath>
-	  <OutputPath>$(SolutionDir)out/$(MSBuildProjectName)/</OutputPath>
+	  <OutputPath>bin/Debug/net8.0/</OutputPath>
   </PropertyGroup>
 
 	<ItemGroup>

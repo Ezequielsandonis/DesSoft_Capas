@@ -6,8 +6,7 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-	  <OutputPath>./out/</OutputPath>
-	  <OutputPath>$(SolutionDir)out/$(MSBuildProjectName)/</OutputPath>
+	  <OutputPath>bin/Debug/net8.0/</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
