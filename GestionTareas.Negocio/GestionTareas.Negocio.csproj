@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <OutputPath>./out/</OutputPath>
+	  <OutputPath>$(SolutionDir)out/$(MSBuildProjectName)/</OutputPath>
   </PropertyGroup>
 
 	<ItemGroup>
